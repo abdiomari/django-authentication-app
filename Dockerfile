@@ -14,4 +14,5 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
-ENTRYPOINT [ "gunicorn", "auth.wsgi", "-b", "0.0.0.0:8000"]
+ENTRYPOINT [ "gunicorn", "auth.wsgi"]
+
