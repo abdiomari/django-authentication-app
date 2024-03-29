@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script>
+        window.onload = function() {
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+        
+            email.oninvalid = function(event) {
+                event.target.setCustomValidity('Email is required and must be the correct format. email@example.com');
+            }
+        
+            password.oninvalid = function(event) {
+                event.target.setCustomValidity('Password is required and must be at least 8 characters long.');
+            }
+        
+            username.oninput = function(event) {
+                event.target.setCustomValidity('');
+            }
+        
+            password.oninput = function(event) {
+                event.target.setCustomValidity('');
+            }
+        }
+        </script>
 </head>
+
 <body>
     <!-- login start -->
     
@@ -62,5 +88,6 @@
     <!-- login end -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  
 </body>
 </html>

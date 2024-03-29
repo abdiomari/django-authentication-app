@@ -11,8 +11,8 @@ def user_signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            User.objects.create_user(username=form.cleaned_data['username'], email=form.cleaned_data['email'], password=form.cleaned_data['password1'],password2=form.cleaned_data['password2'], )
-            return redirect('login.html')
+            User.objects.create_user(username=form.cleaned_data['username'], email=form.cleaned_data['email'], password=form.cleaned_data['password1'] )
+            return redirect('login')
         else:
             print(form.errors)
     else:
@@ -28,7 +28,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('index.html')
+                return redirect('index')
             else:
                 print(form.errors)
     else:

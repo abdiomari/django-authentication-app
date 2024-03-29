@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth Application</title>
-</head>
-<body>
-    {% if request.user.is_authenticated %}
+{% extends "base.html" %}
 
-   <p>Welcome, {{request.user.username}}</p>
-    <a href="{% url 'logout' %}">Logout</a>
 
-    {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
+{% block content %} 
+ 
+{% if request.user.is_authenticated %}
 
-    {% endif %}
+<p class="text-5xl font-semibold">Welcome, {{request.user.username}}</p>
+<a href="{% url 'logout' %}">Logout</a>
 
-    
-</body>
-</html>
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+<a href="{% url 'signup' %}">Sign Up</a>
+
+{% endif %} 
+{% endblock %}
